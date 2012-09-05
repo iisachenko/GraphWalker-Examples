@@ -49,7 +49,7 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
     WebElement element;
     element = driver.findElement(By.id("twotabsearchtextbox"));
     element.clear();
-    element.sendKeys(new String[] { "Model-based testing" });
+    element.sendKeys("Model-based testing");
     try {
       driver.findElement(By.xpath("//*[@id='navGoButton']/input")).click();
     } catch (NoSuchElementException e) {
@@ -125,7 +125,7 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
     Integer expected_num_of_books = Integer.valueOf(getMbt().getDataValue("num_of_books"));
     Integer actual_num_of_books = null;
 
-    if (expected_num_of_books.intValue() == 0) {
+    if (expected_num_of_books == 0) {
       Assert.assertTrue(verifyTextPresent("Your Shopping Cart is empty"));
       return;
     }
