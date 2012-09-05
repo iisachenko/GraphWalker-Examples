@@ -49,7 +49,7 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
     WebElement element;
     element = driver.findElement(By.id("twotabsearchtextbox"));
     element.clear();
-    element.sendKeys("Model-based testing");
+    element.sendKeys(new String[] { "Model-based testing" });
     try {
       driver.findElement(By.xpath("//*[@id='navGoButton']/input")).click();
     } catch (NoSuchElementException e) {
@@ -122,10 +122,10 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
    */
   public void v_ShoppingCart() throws InvalidDataException, InterruptedException {
     Assert.assertTrue(driver.getTitle().matches("^Amazon\\.com Shopping Cart.*"));
-    Integer expected_num_of_books = Integer.parseInt(getMbt().getDataValue("num_of_books"));
+    Integer expected_num_of_books = Integer.valueOf(getMbt().getDataValue("num_of_books"));
     Integer actual_num_of_books = null;
 
-    if (expected_num_of_books == 0) {
+    if (expected_num_of_books.intValue() == 0) {
       Assert.assertTrue(verifyTextPresent("Your Shopping Cart is empty"));
       return;
     }
@@ -134,7 +134,7 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
     Pattern pattern = Pattern.compile("Subtotal \\(([0-9]+) items*\\):", Pattern.MULTILINE);
     Matcher matcher = pattern.matcher(itemsInCart);
     if (matcher.find()) {
-      actual_num_of_books = Integer.parseInt(matcher.group(1));
+      actual_num_of_books = Integer.valueOf(matcher.group(1));
     }
     Assert.assertEquals(expected_num_of_books, actual_num_of_books);
   }
