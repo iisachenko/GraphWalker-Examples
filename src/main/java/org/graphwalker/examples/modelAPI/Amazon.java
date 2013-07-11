@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import junit.framework.Assert;
-
 import org.graphwalker.exceptions.InvalidDataException;
 import org.graphwalker.generators.PathGenerator;
 import org.openqa.selenium.By;
@@ -13,6 +11,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
 public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
   WebDriver driver = null;
