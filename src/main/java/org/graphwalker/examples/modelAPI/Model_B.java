@@ -27,6 +27,14 @@ public class Model_B extends org.graphwalker.multipleModels.ModelAPI {
     Thread.sleep(500);
   }
 
+  /**
+   * This method implements the Edge 'e_D'
+   * 
+   */
+  public void e_D() throws InterruptedException {
+    Thread.sleep(500);
+  }
+
 
   /**
    * This method implements the Vertex 'v_B'
