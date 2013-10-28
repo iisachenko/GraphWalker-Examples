@@ -4,6 +4,10 @@
 /.project
 /.settings
 
+# Intellij stuff #
+#################
+/.idea
+
 # Build and unit tests stuff #
 #############################
 /logs
