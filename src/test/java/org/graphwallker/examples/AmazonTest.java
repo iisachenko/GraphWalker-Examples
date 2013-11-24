@@ -81,7 +81,7 @@ public class AmazonTest {
     // Connect the model to a java class, and add it to graphwalker's modelhandler.
     // The model is to be executed using the following criteria:
     // Go the fastest path to the vertex v_ShoppingCart.
-    modelhandler.add("Amazon", new Amazon(file, false, new A_StarPathGenerator(new ReachedVertex("v_ShoppingCart")), false));
+    modelhandler.add("Amazon", new Amazon(file, true, new A_StarPathGenerator(new ReachedVertex("v_ShoppingCart")), false));
 
     // Start executing the test
     modelhandler.execute("Amazon");
