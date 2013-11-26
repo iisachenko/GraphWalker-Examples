@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.graphwalker.examples.modelAPI.intf.ShoppingCart;
 import org.graphwalker.exceptions.InvalidDataException;
 import org.graphwalker.generators.PathGenerator;
 import org.openqa.selenium.By;
@@ -13,7 +14,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
-public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
+public class Amazon extends org.graphwalker.multipleModels.ModelAPI
+        implements ShoppingCart {
+
   WebDriver driver = null;
 
   public Amazon(File model, boolean efsm, PathGenerator generator, boolean weight) {
@@ -100,7 +103,7 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
 
   /**
    * This method implements the Vertex 'v_OtherBoughtBooks'
-   * @throws InterruptedException 
+   * @throws InterruptedException
    */
   public void v_OtherBoughtBooks() throws InterruptedException {
     Assert.assertTrue(verifyTextPresent("Customers Who Bought "));
@@ -115,9 +118,9 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
 
   /**
    * This method implements the Vertex 'v_ShoppingCart'
-   * 
+   *
    * @throws InvalidDataException
-   * @throws InterruptedException 
+   * @throws InterruptedException
    */
   public void v_ShoppingCart() throws InvalidDataException, InterruptedException {
     Assert.assertTrue(driver.getTitle().matches("^Amazon\\.com Shopping Cart.*"));
@@ -141,10 +144,10 @@ public class Amazon extends org.graphwalker.multipleModels.ModelAPI {
   /**
    * Got this from:
    * http://www.seleniumwiki.com/webdriver/using-verifytextpresent-in-selenium-2-webdriver/
-   * 
+   *
    * @param text The text to verify
    * @return true if the test is present on the web page
-   * @throws InterruptedException 
+   * @throws InterruptedException
    */
   public boolean verifyTextPresent(String text) throws InterruptedException {
     long end = System.currentTimeMillis() + 5000;

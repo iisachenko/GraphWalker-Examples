@@ -22,6 +22,28 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<id>generateInterfaces</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>org.graphwalker.io.ModelInterfaceGenerator</mainClass>
+							<arguments>
+								<argument>src/main/resources/model</argument>
+								<argument>src/main/java</argument>
+								<argument>org.graphwalker.examples.modelAPI.intf</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -30,7 +52,7 @@
 		<dependency>
 			<groupId>org.graphwalker</groupId>
 			<artifactId>graphwalker</artifactId>
-			<version>2.6.1</version>
+			<version>2.6.3-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
