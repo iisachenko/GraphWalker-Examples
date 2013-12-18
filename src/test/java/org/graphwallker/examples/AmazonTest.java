@@ -58,7 +58,7 @@ public class AmazonTest {
     // EFSM: Extended finite state machine is set to true, which means we are using the data domain
     // in the model
     // Generator: random, walk through the model randomly
-    // Stop condition: Let the sequence be 20 steps long (pairs of edges and vertices)
+    // Stop condition: Edge coverage 100%, we want to walk every edge in the model.
     modelhandler.add("Amazon", new Amazon(file, true, new RandomPathGenerator(new EdgeCoverage(1.0)), false));
 
     // Start executing the test
@@ -107,7 +107,7 @@ public class AmazonTest {
 
         /*  This setup does following:
          *    Execute a test that covers all vertices. After that, execute until
-         *    we have reached the vertex with label:  v_SomeVertexLabel
+         *    we have reached the vertex with label:  v_ShoppingCart
          */
         CombinedPathGenerator generator = new CombinedPathGenerator();
         generator.addPathGenerator(new RandomPathGenerator(new VertexCoverage(1.0)));
