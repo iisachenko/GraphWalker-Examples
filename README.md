@@ -1,5 +1,7 @@
 # GraphWalker-Examples
 
+[![Build Status](https://travis-ci.org/KristianKarl/GraphWalker-Examples.png)](https://travis-ci.org/KristianKarl/GraphWalker-Examples)
+
 GraphWalker is a Model-Based Testing tool. It parses models [finite-state machines] which are designed
 using the yEd, http://www.yworks.com/en/products_yed_about.html, and generates test sequences.
 The tool generates offline and more importanly, online test sequences from Finite State Machines and
